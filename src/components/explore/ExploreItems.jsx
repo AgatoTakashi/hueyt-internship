@@ -12,10 +12,11 @@ const ExploreItems = () => {
   const[loading, setLoading] = useState(false);
   const[items, setItems] = useState([]);
   const[visibleCount, setVisibleCount] = useState(8);
+  const[filter, setFilter] = useState("")
 
   async function getData() {
     setLoading(true)
-    const res = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/explore`)
+    const res = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`)
 
     setItems(res.data || [])
     setLoading(false)
@@ -23,12 +24,12 @@ const ExploreItems = () => {
 
   useEffect(()=>{
       getData();
-    },[])
+    },[filter])
 
   return (
     <>
       <div>
-        <select id="filter-items" defaultValue="">
+        <select id="filter-items" defaultValue="" value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
