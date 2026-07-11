@@ -6,41 +6,9 @@ import axios from "axios";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Countdown from '../UI/Countdown'
 
 const NewItems = () => {
-
-  const Countdown = ({ expiry }) => {
-    const [timeLeft, setTimeLeft] = useState("");
-
-    useEffect(() => {
-      function updateTimer() {
-        const now = Date.now();
-        const diff = expiry - now;
-
-        if (diff <= 0) {
-          setTimeLeft("00h 00m 00s");
-          return;
-        }
-
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        setTimeLeft(
-          `${String(hours).padStart(1, "0")}h ` +
-          `${String(minutes).padStart(2, "0")}m ` +
-          `${String(seconds).padStart(2, "0")}s`
-        );
-      }
-
-      updateTimer();
-      const interval = setInterval(updateTimer, 1000);
-
-      return () => clearInterval(interval);
-    }, [expiry]);
-
-    return <div className="de_countdown">{timeLeft}</div>;
-  };
 
   const[loading2, setLoading2] = useState(false);
   const[response, setResponse] = useState([]);
