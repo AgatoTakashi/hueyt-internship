@@ -42,15 +42,15 @@ const NewItems = () => {
     return <div className="de_countdown">{timeLeft}</div>;
   };
 
-  const[loading, setLoading] = useState(false);
+  const[loading2, setLoading2] = useState(false);
   const[response, setResponse] = useState([]);
 
     async function getData() {
-    setLoading(true)
+    setLoading2(true)
     const res = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`)
 
     setResponse(res.data || [])
-    setLoading(false);
+    setLoading2(false);
   }
 
   useEffect(()=>{
@@ -68,8 +68,27 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {loading
+          {loading2
             ?
+                  new Array(4).fill(0).map((_, index) => (
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+                      <div className="nft__item skeleton">
+                        <div className="author_list_pp">
+                          <div className="skeleton-circle"></div>
+                        </div>
+
+                        <div className="nft__item_wrap">
+                          <div className="skeleton-rect"></div>
+                        </div>
+
+                        <div className="nft__item_info">
+                          <div className="skeleton-text"></div>
+                          <div className="skeleton-text short"></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+            : 
               <OwlCarousel className='owl-theme' loop nav lazyLoad items={4} dots={false} margin={10}
                 responsive={{
                   400: {
@@ -142,41 +161,6 @@ const NewItems = () => {
                     </div>
                   </div>
                 ))}
-              </OwlCarousel>
-            : 
-              <OwlCarousel className='owl-theme' loop nav lazyLoad items={4} dots={false} margin={10} 
-                responsive={{
-                  400: {
-                    items: 1,
-                  },
-                  640: {
-                    items: 2,
-                  },
-                  768: {
-                    items: 3,
-                  },
-                  1000: {
-                    items: 4,
-                  },
-                }} >
-                  {new Array(4).fill(0).map((_, index) => (
-                    <div className="" key={index}>
-                      <div className="nft__item skeleton">
-                        <div className="author_list_pp">
-                          <div className="skeleton-circle"></div>
-                        </div>
-
-                        <div className="nft__item_wrap">
-                          <div className="skeleton-rect"></div>
-                        </div>
-
-                        <div className="nft__item_info">
-                          <div className="skeleton-text"></div>
-                          <div className="skeleton-text short"></div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
               </OwlCarousel>
           }
         </div>
