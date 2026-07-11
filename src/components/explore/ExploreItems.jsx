@@ -46,7 +46,7 @@ const ExploreItems = () => {
             </div>
           ))
         :
-          items.map((item, index) => (
+          items.slice(0,8).map((item, index) => (
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
