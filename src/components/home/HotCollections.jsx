@@ -37,7 +37,7 @@ const HotCollections = () => {
           {loading
             ? 
               new Array(4).fill(0).map((_, index) => (
-                  <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                  <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
                     <div className="nft_coll skeleton-nft">
                       <div className="nft_wrap">
                         <div className="skeleton skeleton-img"></div>
