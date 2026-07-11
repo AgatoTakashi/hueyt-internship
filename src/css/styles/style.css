@@ -16824,3 +16824,68 @@ img {
 .skeleton-text.short {
   width: 40%;
 }
+
+.skeleton3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton3::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+.skeleton-circle3 {
+  width: 50px;
+  height: 50px;
+  background: #ddd;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.skeleton-rect3 {
+  width: 100%;
+  height: 250px;
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.skeleton-text3 {
+  width: 80%;
+  height: 18px;
+  background: #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text3.short3 {
+  width: 40%;
+}
+
+.nft__item3 {
+  display: flex;
+}
+
+.nft__item_info3 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10px;
+}
