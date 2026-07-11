@@ -11,6 +11,7 @@ const ExploreItems = () => {
   
   const[loading, setLoading] = useState(false);
   const[items, setItems] = useState([]);
+  const[visibleCount, setVisibleCount] = useState(8);
 
   async function getData() {
     setLoading(true)
@@ -46,7 +47,7 @@ const ExploreItems = () => {
             </div>
           ))
         :
-          items.slice(0,8).map((item, index) => (
+          items.slice(0, visibleCount).map((item, index) => (
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -57,7 +58,7 @@ const ExploreItems = () => {
           ))
       }
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
+        <Link to="" id="loadmore" className="btn-main lead" onClick={() => setVisibleCount(prev => prev + 4)}>
           Load more
         </Link>
       </div>
