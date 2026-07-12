@@ -48,7 +48,7 @@ const TopSellers = () => {
                   response.map((elem, index) => (
                     <li key={index}>
                       <div className="author_list_pp">
-                        <Link to="/author">
+                        <Link to={`/author/${elem.authorId || elem.id || 1}`}>
                           <img
                             className="lazy pp-author"
                             src={elem.authorImage}

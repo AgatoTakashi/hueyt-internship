@@ -16852,6 +16852,63 @@ img {
   }
 }
 
+.author-profile-skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author-profile-skeleton__avatar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.author-profile-skeleton__meta {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+
+.author-profile-skeleton__follow {
+  display: flex;
+  align-items: flex-end;
+}
+
+.author-profile-skeleton__avatar .skeleton-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.author-profile-skeleton__avatar .skeleton-title {
+  width: 180px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.author-profile-skeleton__avatar .skeleton-code {
+  width: 120px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.author-profile-skeleton__avatar .skeleton-code:last-child {
+  width: 140px;
+  margin-bottom: 0;
+}
+
+.author-profile-skeleton__follow .skeleton-title {
+  width: 120px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.author-profile-skeleton__follow .skeleton-code {
+  width: 90px;
+  height: 40px;
+}
+
 .skeleton-circle3 {
   width: 50px;
   height: 50px;
