@@ -11,17 +11,19 @@ const ExploreItems = () => {
   const[visibleCount, setVisibleCount] = useState(8);
   const[filter, setFilter] = useState("")
 
-  async function getData() {
-    setLoading(true)
-    const res = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`)
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      const res = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
+      );
 
-    setItems(res.data || [])
-    setLoading(false)
-  }
+      setItems(res.data || []);
+      setLoading(false);
+    };
 
-  useEffect(()=>{
-      getData();
-    },[filter])
+    getData();
+  }, [filter]);
 
   return (
     <>

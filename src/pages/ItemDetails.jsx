@@ -10,15 +10,17 @@ const ItemDetails = () => {
   const[response, setResponse] = useState([]);
   const{nftId} = useParams();
 
-  async function getData() {
-    setLoading(true)
-    const res = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`)
-
-    setResponse(res.data || [])
-    setLoading(false);
-  }
-
   useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      const res = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`
+      );
+
+      setResponse(res.data || []);
+      setLoading(false);
+    };
+
     window.scrollTo(0, 0);
     getData();
   }, [nftId]);
