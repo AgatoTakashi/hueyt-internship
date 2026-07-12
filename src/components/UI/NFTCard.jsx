@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import Countdown from "./Countdown";
 
-const NftCard = ({ item }) => {
+const NftCard = ({ item, authorImage: authorImageProp }) => {
+  const authorId = item?.authorId || 1;
+  const authorImage = authorImageProp || item?.authorImage || "";
+
   return (
     <div className="nft__item">
       <div className="author_list_pp">
-        <Link to="/author">
-          <img className="lazy" src={item.authorImage} alt="" />
+        <Link to={`/author/${authorId}`}>
+          <img className="lazy" src={authorImage} alt="" />
           <i className="fa fa-check"></i>
         </Link>
       </div>
