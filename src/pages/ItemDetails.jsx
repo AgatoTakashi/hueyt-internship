@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import axios from "axios";
-import Skeleton from '../components/UI/Skeleton'
 import SkeletonItemDetails from "../components/UI/SkeletonItemDetails";
 
 const ItemDetails = () => {
