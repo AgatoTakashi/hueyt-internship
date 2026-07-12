@@ -57,11 +57,17 @@ const ExploreItems = () => {
             </div>
           ))
       }
-      <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead" onClick={() => setVisibleCount(prev => prev + 4)}>
-          Load more
-        </Link>
-      </div>
+      {visibleCount < items.length 
+        ? 
+          <div className="col-md-12 text-center">
+            <Link to="" id="loadmore" className="btn-main lead" onClick={() => setVisibleCount(prev => prev + 4)}>
+              Load more
+            </Link>
+          </div>
+        :
+        ""
+      }
+      
     </>
   );
 };
